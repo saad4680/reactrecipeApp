@@ -131,7 +131,7 @@ class App extends React.Component {
 	handleSubmit(e){
 		e.preventDefault();
 		ajax({
-			url: "http://api.yummly.com/v1/api/recipes",
+			url: "https://api.yummly.com/v1/api/recipes",
 			method: 'GET',
 			dataType: 'jsonp',
 			data: {
@@ -208,7 +208,7 @@ class App extends React.Component {
 	handleClick(data){
 		
 		ajax({
-		url: `http://api.yummly.com/v1/api/recipe/${data}`,
+		url: `https://api.yummly.com/v1/api/recipe/${data}`,
 		method: 'GET',
 		dataType: 'jsonp',
 		data: {
@@ -255,7 +255,7 @@ class App extends React.Component {
 
 	          	<TextInput changeEvent={this.handleChange} inputID="max" labelText=" - " name="max"/>
 
-	          	<p>Please pick a cuisine.</p>
+	          	<p className="picker">Please pick a cuisine.</p>
 	          	
 
           	</div>
