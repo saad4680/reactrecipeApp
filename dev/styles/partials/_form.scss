@@ -1,0 +1,95 @@
+form {
+	text-align: center;
+	height:100vh;
+	color: #50514F;
+	display:flex;
+
+	
+	flex-direction: column;
+	justify-content: space-around;
+	font-family: 'Montserrat', sans-serif;
+	font-size:24px;
+	align-items: center;
+	.topbar {
+
+		background-color: #4B0082;
+		width:100%;
+		color: #FFF0F5;
+		position: fixed;
+		top:0;
+		display:flex;
+		justify-content: space-between;
+		align-items: center;
+		a {
+			color:white;
+			margin-right: 20px;
+		}
+		p {
+			margin-left: 20px;
+		}
+	}
+	p {
+		margin-bottom:30px;
+	}
+	.submitInput {
+		width:100px;
+	}
+	.calorieInput{
+		p {
+			margin-top:100px;
+
+		}
+		img {
+			width:100px;
+			height:100px;
+		}
+	}
+	.cuisineInput {
+		width:100%;
+		display:flex;
+		flex-wrap:wrap;
+		justify-content: space-around;
+	}
+	.radioInputs{
+		
+		
+
+			label {
+				
+				cursor: pointer;
+				display:flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				img {
+					width:100px;
+					height:100px;
+				}
+			}
+			input:checked + label {
+				transform: scale(1.5);
+
+
+			}
+			input{
+					display:none;
+					text-align: center;
+
+
+			}
+	}
+	.submitInput {
+		background-color: transparent;
+		border: solid 2px #4B0082;
+		border-radius: 5px;
+		padding:10px;
+		width:400px;
+		margin-bottom:50px;
+
+	}
+	.submitInput:hover{
+		background-color: #4B0082;
+		color: #FFF0F5;
+	}
+}

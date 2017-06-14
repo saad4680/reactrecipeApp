@@ -1,0 +1,52 @@
+@import 'partials/setup';
+@import 'partials/login';
+@import 'partials/form';
+@import 'partials/recipegrid';
+@import 'partials/modal';
+@import 'partials/pinneditems';
+
+a {
+	text-decoration: none;
+	color:black;
+
+}
+
+
+*:focus {
+	outline:none;
+}
+body {
+	background: #c9d6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #c9d6ff, #e2e2e2); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #c9d6ff, #e2e2e2); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+	
+.calorieInput img {
+	width:100px;
+	border-radius: 50px;
+	position:fixed;
+	bottom:0;
+	right:0;
+}
+.logoutContainer {
+	height:300px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logout {
+		background-color: transparent;
+		border: solid 2px #4B0082;
+		border-radius: 5px;
+		padding:10px;
+		width:200px;
+		margin-top:100px;
+
+
+	}
+.logout:hover {
+			background-color: #4B0082;
+			color: #FFF0F5;
+		}
