@@ -201,8 +201,6 @@ class App extends React.Component {
 		this.setState({
 			[e.target.name]:e.target.value
 		})
-		// console.log(this.state.calorieMin)
-		// console.log(this.state.calorieMax)
 	}
 
 	handleClick(data){
@@ -421,7 +419,7 @@ class TextInput extends React.Component {
 
  	render(){
  		return (
- 			<span>
+ 			<span className="display">
  			<label htmlFor={this.props.inputID}>{this.props.labelText}</label>
  			<input required="true" type={this.state.text} onChange={this.props.changeEvent} id={this.props.inputID} name={this.props.name}/>
  			</span>

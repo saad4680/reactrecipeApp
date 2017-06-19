@@ -2,16 +2,19 @@
 		
 	 	font-size: 30px;
 	 	text-align: center;
+			margin: 5vw;
 	 	
 		h1 {
-			margin: 0;
 
 		}
 	 }
 .recipeGrid {
 	padding-top:50px;
 	font-family: 'Montserrat', sans-serif;
-
+	
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
 	display:flex;
 	flex-wrap: wrap;
 	justify-content: center;
