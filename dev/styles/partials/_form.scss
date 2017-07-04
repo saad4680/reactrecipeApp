@@ -1,10 +1,12 @@
 form {
 	text-align: center;
 	min-height:100vh;
-	color: #50514F;
+	color: white;
 	display:flex;
+	background-image: url('../../assets/hero.jpg');
+	background-position: center center;
+	background-size:cover;
 
-	
 	flex-direction: column;
 	justify-content: space-around;
 	font-family: 'Montserrat', sans-serif;
@@ -12,17 +14,19 @@ form {
 	align-items: center;
 	.topbar {
 		width:100%;
-		background-color: #4B0082;
-		
-		color: #FFF0F5;
+		background-color: goldenrod;
+		height:75px;
+		color: white;
 		position: fixed;
 		top:0;
 		display:flex;
 		justify-content: space-between;
 		align-items: center;
+		font-family:'Lobster', cursive;
 		a {
 			color:white;
 			margin: 2vw;
+			cursor:pointer;
 		}
 		p {
 			margin: 2vw;
@@ -32,9 +36,11 @@ form {
 		margin-bottom:1.39vw;
 	}
 	.calorieInput{
+
 		margin-top:1.39vw;
 		p {
-			margin-top:5.56vw;
+			padding-top:170px;
+		
 
 		}
 		img {
@@ -50,10 +56,15 @@ form {
 	}
 	.radioInputs{
 		
-			
+			padding-bottom: 120px;
 
 			label {
-				
+				padding:10px;
+				border-radius:5px;
+				border: 1px solid goldenrod;
+				background-color: white;
+				color:black;
+				font-family:  'Lobster', cursive;
 				cursor: pointer;
 				display:flex;
 				flex-direction: column;
@@ -61,6 +72,7 @@ form {
 				align-items: center;
 
 				img {
+					display: none;
 					width:100px;
 					height:100px;
 				}
@@ -79,14 +91,16 @@ form {
 	}
 	.submitInput {
 		background-color: transparent;
-		border: solid 2px #4B0082;
+		border: solid 2px goldenrod;
 		border-radius: 5px;
+		color:white;
 		padding:10px;
 		margin-bottom:50px;
+		transition: all 0.3s;
 
 	}
 	.submitInput:hover{
-		background-color: #4B0082;
-		color: #FFF0F5;
+		background-color: goldenrod;
+		color: white;
 	}
 }

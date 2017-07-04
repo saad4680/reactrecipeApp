@@ -82,6 +82,7 @@ class App extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleClick = this.handleClick.bind(this);
+		this.handlenewclick = this.handlenewclick.bind(this);
 		this.handlefirebaseClick = this.handlefirebaseClick.bind(this);
 		this.login= this.login.bind(this);
 		this.logout= this.logout.bind(this);
@@ -90,7 +91,7 @@ class App extends React.Component {
 	componentDidMount(){
 		auth.onAuthStateChanged((user) => {
 			if (user) {
-				console.log('loggedIn');
+
 				this.setState({
 					user: user,
 					loggedIn:true
@@ -100,7 +101,7 @@ class App extends React.Component {
 			
 				userRef.on('value', (snapshot) => {
 					let firerecipes = snapshot.val();
-					console.log(firerecipes)
+		
 					let newState = [];
 					for (let recipe in firerecipes) {
 						newState.push({
@@ -124,7 +125,7 @@ class App extends React.Component {
 	}
 	
 	removeItem(key){
-		console.log(key);
+
 		const recipesRef = firebase.database().ref(`${firebase.auth().currentUser.uid}/${key}`);
 		recipesRef.remove();
 	}
@@ -146,11 +147,14 @@ class App extends React.Component {
 
 		}).then((rec) => {
 			let recData = rec.matches;
-			console.log(recData)
+
 			this.setState({
 				recipes: recData
 			})
-
+			
+			 $('html, body').animate({
+                scrollTop: $("#hi").offset().top
+            }, 1000);
 
 		})
 	}
@@ -170,15 +174,23 @@ class App extends React.Component {
 		  userRef.push(recipe).then(() => {
 		  		var x = document.getElementById('overlay');
         	x.classList.remove("show");
+        	 $('html, body').animate({
+                scrollTop: $("#saved").offset().top
+            }, 1000);
 		  })
 
 	
+	}
+	handlenewclick(){
+		 $('html, body').animate({
+                scrollTop: $("#saved").offset().top
+            }, 1000);
 	}
 
 	login(){
 		auth.signInWithPopup(provider).then((result) => {
 			const user = result.user;
-			console.log(user);
+
 			this.setState({
 				user: user,
 				loggedIn: true
@@ -214,7 +226,7 @@ class App extends React.Component {
 			_app_id: apiId
 		}
 	}).then((singleRec) => {
-		console.log(singleRec)
+
 		this.setState({
 			singleRecipeName: singleRec.name,
 			singleRecipeSource: singleRec.attribution.url
@@ -241,7 +253,7 @@ class App extends React.Component {
     		<form action="" onSubmit={this.handleSubmit}>
     			<div className="topbar">
           		<p> Hey, {this.state.user.displayName}!</p>
-          		<a href="#saved">View Saved Recipes</a>
+          		<a onClick={this.handlenewclick}>View Saved Recipes</a>
     			</div>
     		
 
@@ -273,13 +285,11 @@ class App extends React.Component {
 
           	</div>
 
-          	<input className="submitInput" type="submit" value="Find And Save Recipes"/>
+          	<input id="hello" className="submitInput" type="submit" value="Find And Save Recipes"/>
 
           </form>
-          <div id="heading" className="heading">
-          	<h1>Your Recipes</h1>
-          </div>
-          <div className="recipeGrid">
+          
+          <div id="hi" className="recipeGrid">
           		{this.state.recipes.map((recipe) => {
           				recipe.smallImageUrls=recipe.smallImageUrls.toString().replace('=s90','=s300');
           			return(
@@ -312,7 +322,6 @@ class App extends React.Component {
           		<h1 id="saved">Your Saved Recipes</h1>
           		<ul className="pinnedItem">
           		{this.state.fireRecipes.map((firerec) => {
-          			console.log(firerec)
           			return(<li key={firerec.id}>
  						<h3>{firerec.title}</h3>
  						<a href={firerec.source} target="_blank">Lets get Cooking!</a>
@@ -363,10 +372,10 @@ const SingleRecipe = (props) => {
 		
 		<div id="modal">		
 		<h3>{props.name}</h3>	
-		<a href={props.source} target="_blank">View Ingredients and Directions</a>
+		<a href={props.source} target="_blank">I'm Ready to Get Cooking</a>
 		<span>
 		<button onClick={props.exitModal}>Exit</button>	
-		<button onClick={props.handlefirebaseClick}>Save Recipe</button>
+		<button onClick={props.handlefirebaseClick}>Save For Later</button>
 		</span>
 
 		
@@ -427,6 +436,7 @@ class TextInput extends React.Component {
  			)
  	}
  }
+
 
 
 
