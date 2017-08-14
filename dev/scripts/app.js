@@ -2,6 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {ajax} from 'jquery';
 import $ from 'jquery';
+import TextInput from './components/TextInput';
+import RadioInput from './components/RadioInput';
+import Recipes from './components/Recipes';
+import SingleRecipe from './components/SingleRecipe';
+
+
 
 // $(document).ready(function(){
 // 	// Select all links with hashes
@@ -364,79 +370,6 @@ class App extends React.Component {
       )
     }
 }
-
-const SingleRecipe = (props) => {
-	// SingleRecipe doesn't have access to this so we use props to send em up to the render
-	return(
-		<div id="overlay">
-		
-		<div id="modal">		
-		<h3>{props.name}</h3>	
-		<a href={props.source} target="_blank">I'm Ready to Get Cooking</a>
-		<span>
-		<button onClick={props.exitModal}>Exit</button>	
-		<button onClick={props.handlefirebaseClick}>Save For Later</button>
-		</span>
-
-		
-		</div>
-		
-	</div>)
-
-}
-
-const Recipes = (props) => {
-		return(<div className="componentRecipe">
-			<h3>{props.name}</h3>
-			<p> by {props.source}</p>
-			<img src={props.image} alt=""/>
-			<button onClick={() => props.handleClick(props.data)}>View More Details</button>
-		</div>);
-}
-
-
-class RadioInput extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			inputType: 'radio'
-		};
-	}
-
-	render() {
-		return(
-			
-				<div className="radioInputs">
-					<input type={this.state.inputType} onChange={this.props.changeEvent} id={this.props.inputID} name={this.props.name} value={this.props.inputID} required="true"/>
-					<label htmlFor={this.props.inputID}><img src={this.props.image} alt=""/>{this.props.labelText}</label>
-				</div>
-
-			
-		)
-	}
-}
-
-
-
-class TextInput extends React.Component {
- constructor(props){
- 	super(props);
- 	this.state = {
- 		inputType: 'text'
- 	}
- }
-
- 	render(){
- 		return (
- 			<span className="display">
- 			<label htmlFor={this.props.inputID}>{this.props.labelText}</label>
- 			<input required="true" type={this.state.text} onChange={this.props.changeEvent} id={this.props.inputID} name={this.props.name}/>
- 			</span>
-
- 			)
- 	}
- }
-
 
 
 
